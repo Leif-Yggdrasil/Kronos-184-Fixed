@@ -14,7 +14,6 @@ import io.ruin.model.skills.hunter.traps.TrapType;
 import io.ruin.model.stat.StatType;
 import io.ruin.process.event.Event;
 import io.ruin.utility.Misc;
-import kilim.Pausable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +67,7 @@ public abstract class Creature {
         NPCDef.get(npcId).ignoreOccupiedTiles = true;
     }
 
-    protected void creatureLoop(NPC npc, Event event) throws Pausable {
+    protected void creatureLoop(NPC npc, Event event) {
         if (npc.localPlayers().size() == 0) {
             event.delay(3);
             return;
@@ -148,7 +147,7 @@ public abstract class Creature {
                 && !trap.isBusy(); // trap not already locked onto by another npc
     }
 
-    protected abstract void prepareForCatchAttempt(NPC npc, Trap trap, Event event) throws Pausable;
+    protected abstract void prepareForCatchAttempt(NPC npc, Trap trap, Event event);
 
 
     public boolean rollCatch(NPC npc, Trap trap) {
@@ -171,13 +170,13 @@ public abstract class Creature {
     /**
      * Note that the creature AI loop does NOT hide the NPC on a successful catch, this must be done in this method to ensure the npc goes invisible with the correct timing
      */
-    protected abstract void succeedCatch(NPC npc, Trap trap, Event event) throws Pausable;
+    protected abstract void succeedCatch(NPC npc, Trap trap, Event event);
 
     /**
      * There is some weird fuckery going on with this method in my IntelliJ, subclasses keep giving compile errors saying it isn't implemented when it actually is...
      * Very annoying but deleting the method here and re-adding it seems to get rid of the error until the subclass is changed again, hopefully it only happens for me
      */
-    protected abstract void failCatch(NPC npc, Trap trap, Event event) throws Pausable;
+    protected abstract void failCatch(NPC npc, Trap trap, Event event);
 
 
     public int getNpcId() {

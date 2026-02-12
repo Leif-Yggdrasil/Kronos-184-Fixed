@@ -6,7 +6,6 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.google.common.collect.Lists;
 import io.ruin.Server;
 import io.ruin.data.yaml.impl.ShopLoader;
-import kilim.agent.KilimAgent;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.yaml.snakeyaml.Yaml;

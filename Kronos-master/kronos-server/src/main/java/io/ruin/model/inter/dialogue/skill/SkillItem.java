@@ -3,7 +3,6 @@ package io.ruin.model.inter.dialogue.skill;
 import io.ruin.cache.ItemDef;
 import io.ruin.model.entity.player.Player;
 import io.ruin.process.event.Event;
-import kilim.Pausable;
 
 import java.util.function.Predicate;
 
@@ -49,7 +48,7 @@ public class SkillItem {
 
     @FunctionalInterface
     public interface SkillItemConsumer<A, B, C> {
-        void accept(A a, B b, C c) throws Pausable;
+        void accept(A a, B b, C c);
     }
 
 }

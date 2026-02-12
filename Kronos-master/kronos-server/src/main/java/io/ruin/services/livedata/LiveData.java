@@ -14,12 +14,6 @@ import io.ruin.model.item.containers.bank.Bank;
 import io.ruin.model.item.containers.bank.BankItem;
 import io.ruin.model.map.Position;
 import io.ruin.services.livedata.handler.LiveDataUpdateHandler;
-import io.undertow.Handlers;
-import io.undertow.Undertow;
-import io.undertow.server.HttpHandler;
-import io.undertow.server.handlers.PathTemplateHandler;
-import io.undertow.util.HttpString;
-import io.undertow.util.StatusCodes;
 
 import java.util.HashMap;
 import java.util.Map;

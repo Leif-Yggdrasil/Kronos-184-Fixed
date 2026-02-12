@@ -28,7 +28,6 @@ import io.ruin.model.skills.prayer.Prayer;
 import io.ruin.model.stat.StatType;
 import io.ruin.process.event.Event;
 import io.ruin.utility.TickDelay;
-import kilim.Pausable;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -489,7 +488,7 @@ public class GreatOlm extends NPCCombat {
         claw.setHidden(false);
     }
 
-    private void rise(Event event) throws Pausable {
+    private void rise(Event event) {
         npc.lock();
         rightClaw.lock();
         leftClaw.lock();

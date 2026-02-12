@@ -12,7 +12,6 @@ import io.ruin.model.skills.hunter.traps.Trap;
 import io.ruin.model.skills.hunter.traps.impl.NetTrap;
 import io.ruin.model.stat.StatType;
 import io.ruin.process.event.Event;
-import kilim.Pausable;
 
 import java.util.Collections;
 import java.util.List;
@@ -83,12 +82,12 @@ public class Salamander extends Creature {
     }
 
     @Override
-    protected void prepareForCatchAttempt(NPC npc, Trap trap, Event event) throws Pausable {
+    protected void prepareForCatchAttempt(NPC npc, Trap trap, Event event) {
         //nothing required
     }
 
     @Override
-    protected void succeedCatch(NPC npc, Trap trap, Event event) throws Pausable {
+    protected void succeedCatch(NPC npc, Trap trap, Event event) {
         npc.setHidden(true);
 
         GameObject tree = NetTrap.getTreeObject(trap.getObject());
@@ -110,7 +109,7 @@ public class Salamander extends Creature {
     }
 
     @Override
-    protected void failCatch(NPC npc, Trap trap, Event event) throws Pausable {
+    protected void failCatch(NPC npc, Trap trap, Event event) {
         npc.getRouteFinder().routeSelf();
         GameObject tree = NetTrap.getTreeObject(trap.getObject());
         GameObject toReplace = tree;

@@ -5,8 +5,6 @@ import io.ruin.model.achievements.Achievement;
 import io.ruin.model.shop.Shop;
 import io.ruin.model.shop.ShopItem;
 import io.ruin.model.shop.ShopManager;
-import kilim.agent.KilimAgent;
-import kilim.tools.Kilim;
 import lombok.Getter;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;

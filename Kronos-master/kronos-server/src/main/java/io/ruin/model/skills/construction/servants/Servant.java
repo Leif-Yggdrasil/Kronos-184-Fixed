@@ -17,7 +17,6 @@ import io.ruin.model.skills.construction.House;
 import io.ruin.model.skills.construction.Material;
 import io.ruin.model.skills.prayer.Bone;
 import io.ruin.process.event.Event;
-import kilim.Pausable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -195,7 +194,7 @@ public class Servant extends NPC {
         return getInventory().isEmpty();
     }
 
-    private boolean tick(Event event) throws Pausable {
+    private boolean tick(Event event) {
         switch (state) {
             case IDLE:
             case GREETING:
@@ -210,7 +209,7 @@ public class Servant extends NPC {
         }
     }
 
-    private void follow(Event event) throws Pausable {
+    private void follow(Event event) {
         Player owner = house.getOwner();
         if (!owner.isInOwnHouse()) {
             state = State.IDLE;

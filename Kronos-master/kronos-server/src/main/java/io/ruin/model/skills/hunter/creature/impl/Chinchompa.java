@@ -11,7 +11,6 @@ import io.ruin.model.skills.hunter.traps.Trap;
 import io.ruin.model.skills.hunter.traps.TrapType;
 import io.ruin.model.skills.hunter.traps.impl.BoxTrap;
 import io.ruin.process.event.Event;
-import kilim.Pausable;
 
 import java.util.Collections;
 import java.util.List;
@@ -52,13 +51,13 @@ public class Chinchompa extends Creature {
     }
 
     @Override
-    protected void prepareForCatchAttempt(NPC npc, Trap trap, Event event) throws Pausable {
+    protected void prepareForCatchAttempt(NPC npc, Trap trap, Event event) {
         npc.face(trap.getObject());
         event.delay(1);
     }
 
     @Override
-    protected void succeedCatch(NPC npc, Trap trap, Event event) throws Pausable {
+    protected void succeedCatch(NPC npc, Trap trap, Event event) {
         npc.animate(5184);
         event.delay(1);
         if (!trap.getOwner().isOnline()) {
@@ -75,7 +74,7 @@ public class Chinchompa extends Creature {
     }
 
     @Override
-    protected void failCatch(NPC npc, Trap trap, Event event) throws Pausable {
+    protected void failCatch(NPC npc, Trap trap, Event event) {
         npc.animate(5185);
         trap.getObject().setId(9381);
         event.delay(2);

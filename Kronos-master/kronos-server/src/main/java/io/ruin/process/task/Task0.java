@@ -1,33 +1,40 @@
 package io.ruin.process.task;
 
 import io.ruin.Server;
-import kilim.Pausable;
-import kilim.Task;
 
 public class Task0 {
 
-    private Task task;
+    private final Thread thread;
 
     protected Task0(TaskConsumer consumer) {
-        task = new Task() {
-            @Override
-            public void execute() throws Pausable {
-                try {
-                    consumer.accept(Task0.this);
-                } catch(Throwable t) {
-                    Server.logError("", t);
-                }
+        thread = Thread.ofVirtual().unstarted(() -> {
+            try {
+                consumer.accept(this);
+            } catch (Throwable t) {
+                Server.logError("", t);
             }
-        };
+        });
     }
 
     protected Task0 start() {
-        task.start();
+        thread.start();
         return this;
     }
 
-    public final void sleep(long ms) throws Pausable {
-        Task.sleep(ms);
+    public final void cancel() {
+        thread.interrupt();
+    }
+
+    public final boolean isAlive() {
+        return thread.isAlive();
+    }
+
+    public final void sleep(long ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 
     public final void sync(Runnable runnable) {

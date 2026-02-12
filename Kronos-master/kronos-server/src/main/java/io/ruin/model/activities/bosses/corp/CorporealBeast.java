@@ -19,7 +19,6 @@ import io.ruin.model.map.route.routes.ProjectileRoute;
 import io.ruin.model.skills.prayer.Prayer;
 import io.ruin.process.event.Event;
 import io.ruin.utility.Misc;
-import kilim.Pausable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,7 +87,7 @@ public class CorporealBeast extends NPCCombat {
         return damage > 0;
     }
 
-    private void moveCore(Event event) throws Pausable {
+    private void moveCore(Event event) {
         if (core == null || core.isRemoved())
             return;
         List<Player> targets = npc.localPlayers().stream().filter(p -> ProjectileRoute.allow(core, p)).collect(Collectors.toList());

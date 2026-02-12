@@ -3,7 +3,6 @@ package io.ruin.services.livedata.handler;
 import com.google.gson.Gson;
 import io.ruin.Server;
 import io.ruin.services.livedata.LiveData;
-import io.undertow.server.HttpHandler;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;

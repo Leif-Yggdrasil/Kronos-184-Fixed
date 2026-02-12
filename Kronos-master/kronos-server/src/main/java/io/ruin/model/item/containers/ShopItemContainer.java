@@ -7,7 +7,6 @@ import io.ruin.model.item.ItemContainer;
 import io.ruin.model.item.ItemContainerG;
 import io.ruin.model.item.attributes.AttributeExtensions;
 import io.ruin.model.shop.ShopItem;
-import lombok.var;
 
 import java.util.Map;
 import java.util.Objects;

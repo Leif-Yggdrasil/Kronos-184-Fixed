@@ -9,7 +9,6 @@ import io.ruin.process.event.Event;
 import io.ruin.process.event.EventConsumer;
 import io.ruin.process.event.EventType;
 import io.ruin.process.event.EventWorker;
-import kilim.Pausable;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -171,7 +170,7 @@ public class ShopManager {
             shop.open(player);
     }
 
-    public static void shopTick(Event event, Shop shop) throws Pausable {
+    public static void shopTick(Event event, Shop shop) {
         while(true) {
             RestockRules restockRules = shop.restockRules;
             event.delay(restockRules.restockTicks);

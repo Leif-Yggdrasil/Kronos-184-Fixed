@@ -30,8 +30,6 @@ import io.ruin.services.LatestUpdate;
 import io.ruin.services.Loggers;
 import io.ruin.services.discord.DiscordConnection;
 import io.ruin.utility.CharacterBackups;
-import kilim.WeavingClassLoader;
-import kilim.agent.KilimAgent;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
@@ -74,19 +72,6 @@ public class Server extends ServerWrapper {
     }
 
     public static void main(String[] args) throws Throwable {
-
-        if (kilim.tools.Kilim.trampoline(new Object(), true, args))  {
-            return;
-        }
-//        Thread.currentThread().setContextClassLoader(new WeavingClassLoader());
-//        AgentLoader.loadAgentClass(KilimAgent.class.getName(), "");
-//        KilimAgent.classLoader = (WeavingClassLoader) Thread.currentThread().getContextClassLoader();
-        log.info("{}", Thread.currentThread().getContextClassLoader());
-        WeavingClassLoader classLoader = new WeavingClassLoader();
-        Thread.currentThread().setContextClassLoader(classLoader);
-        AgentLoader.loadAgentClass(KilimAgent.class.getName(), "");
-        KilimAgent.classLoader = classLoader;
-
         long startTime = System.currentTimeMillis();
 
         init(Server.class);

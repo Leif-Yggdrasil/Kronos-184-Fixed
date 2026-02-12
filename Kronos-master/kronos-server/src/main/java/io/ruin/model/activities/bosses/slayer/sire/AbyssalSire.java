@@ -31,7 +31,6 @@ import io.ruin.model.skills.slayer.Slayer;
 import io.ruin.process.event.Event;
 import io.ruin.utility.Misc;
 import io.ruin.utility.TickDelay;
-import kilim.Pausable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -510,7 +509,7 @@ public class AbyssalSire extends NPCCombat {
         return activatedBy != -1 && activatedBy == target.player.getUserId() && super.canAttack(target);
     }
 
-    private void tentacleLogic(NPC tentacle, Event event) throws Pausable {
+    private void tentacleLogic(NPC tentacle, Event event) {
         while (true) {
             if (tentacle.localPlayers().size() == 0) { // thought this wasnt necessary but apparently it is
                 event.delay(3);

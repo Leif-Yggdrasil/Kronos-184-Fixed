@@ -11,7 +11,6 @@ import io.ruin.model.skills.hunter.traps.Trap;
 import io.ruin.model.skills.hunter.traps.TrapType;
 import io.ruin.model.skills.hunter.traps.impl.BirdSnare;
 import io.ruin.process.event.Event;
-import kilim.Pausable;
 
 import java.util.Arrays;
 import java.util.List;
@@ -46,7 +45,7 @@ public class Bird extends Creature {
     }
 
     @Override
-    protected void failCatch(NPC npc, Trap trap, Event event) throws Pausable {
+    protected void failCatch(NPC npc, Trap trap, Event event) {
         trap.getObject().setId(9346);
         npc.animate(5172);
         event.delay(1);
@@ -57,7 +56,7 @@ public class Bird extends Creature {
     }
 
     @Override
-    protected void prepareForCatchAttempt(NPC npc, Trap trap, Event event) throws Pausable {
+    protected void prepareForCatchAttempt(NPC npc, Trap trap, Event event) {
         npc.face(npc.getAbsX(), npc.getAbsY() - 1);
         event.delay(2);
         npc.animate(5171);
@@ -66,7 +65,7 @@ public class Bird extends Creature {
 
 
     @Override
-    protected void succeedCatch(NPC npc, Trap trap, Event event) throws Pausable {
+    protected void succeedCatch(NPC npc, Trap trap, Event event) {
         trap.getObject().setId(catchingObject);
         npc.setHidden(true);
         event.delay(2);

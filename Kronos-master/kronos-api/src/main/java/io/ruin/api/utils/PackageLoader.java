@@ -1,7 +1,5 @@
 package io.ruin.api.utils;
 
-import kilim.KilimClassLoader;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -31,8 +29,7 @@ public class PackageLoader {
     }
 
     public static Class[] load(String packageName) throws Exception {
-        //ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        KilimClassLoader classLoader = new KilimClassLoader();
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         if(classLoader == null)
             throw new IOException("Could not access ClassLoader!");
         String path = packageName.replace('.', '/');
