@@ -1,0 +1,17 @@
+# IDE / tool config
+.claude/
+.idea/
+.serena/
+
+# Build output
+Kronos-master/.kotlin/
+Kronos-master/kronos-api/bin/
+Kronos-master/kronos-launcher/bin/
+Kronos-master/kronos-server/bin/
+
+# Server data (runtime generated)
+Kronos-master/kronos-server/server-data/
+Kronos-master/server-data/
+
+# Auto-generated dependency report
+Kronos-master/runelite/runelite-client/dependencies.txt

@@ -9,6 +9,7 @@ import com.google.common.collect.Lists;
 import io.ruin.api.utils.NumberUtils;
 import io.ruin.cache.ItemDef;
 import io.ruin.model.entity.player.Player;
+import io.ruin.model.inter.InterfaceHandler;
 import io.ruin.model.inter.InterfaceType;
 import io.ruin.model.item.Item;
 import io.ruin.model.item.containers.ShopItemContainer;
@@ -118,7 +119,10 @@ public class Shop {
             player.closeInterface(InterfaceType.MAIN);
 
 
-        player.openInterface(InterfaceType.MAIN, 300);
+        InterfaceHandler handler = InterfaceHandler.HANDLERS[300];
+        if (handler == null) handler = InterfaceHandler.EMPTY_HANDLER;
+        handler.closedAction = (p, id) -> close(p);
+        player.openInterface(InterfaceType.MAIN, 300, handler);
         player.openInterface(InterfaceType.INVENTORY, 301);
 
         player.getPacketSender().sendClientScript(1074, "isii",4, title, -1, 0);

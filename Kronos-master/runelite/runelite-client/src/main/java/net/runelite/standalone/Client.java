@@ -5702,6 +5702,21 @@ public final class Client extends GameShell implements Usernamed, RSClient {
          }
 
          if(gameState == 30) {
+            // ESC key closes all open interfaces
+            if(KeyHandler.KeyHandler_pressedKeys[13]) {
+               boolean hasCloseableInterface = false;
+               for(InterfaceParent ip = (InterfaceParent)interfaceParents.method6348(); ip != null; ip = (InterfaceParent)interfaceParents.method6345()) {
+                  if(ip.type == 0 || ip.type == 3) {
+                     hasCloseableInterface = true;
+                     break;
+                  }
+               }
+               if(hasCloseableInterface) {
+                  class37.method728();
+               }
+               KeyHandler.KeyHandler_pressedKeys[13] = false;
+            }
+
             while(true) {
                ReflectionCheck var2 = (ReflectionCheck)class94.reflectionChecks.method5044();
                boolean var29;
