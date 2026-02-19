@@ -30,3 +30,39 @@
 > This server contains most content up to TOB and we started a good bit of work on it before closing. The interfaces and party systems are done, combat it left.
 >
 > You can learn more about what there server has to offer in our [advertisement thread](https://www.rune-server.ee/runescape-development/rs2-server/advertise/690549-kronos-first-osrs-deob-custom-server-just-released.html)
+---
+
+# **Setup Guide**
+
+Step 1.
+Open Kronos-master in Intellij  
+![Step 1.png](SetupGuide/Step%201.png)  
+![Step 2.png](SetupGuide/Step%202.png)  
+
+Now you need to set Java in Project Structure to JDK21  
+![Step 3.png](SetupGuide/Step%203.png)  
+![Step 4.png](SetupGuide/Step%204.png)  
+
+Next you will need to set Java in Settings > Build, Execution, Deployment > Build Tools > Gradle and set Kronos-master to Project SDK (If you did previous step) / JDK21  
+Then runelite will need to be set to JDK8  
+![Step 5.png](SetupGuide/Step%205.png)  
+![Step 6.png](SetupGuide/Step%206.png)  
+![Step 7.png](SetupGuide/Step%207.png)  
+
+In the Project directory open runelite drop down right click settings.gradle.kts and link to Gradle project  
+![Step 8.png](SetupGuide/Step%208.png)  
+
+Then open the drop down for kronos-server and kronos-update-server and rename both server.example.properties to server.properties  
+![Step 9.png](SetupGuide/Step%209.png)  
+
+Your world_stage will be set to DEV within server.properties, This will give you admin rights on account creation and also doesn't verify password on login  
+(This will change your password each time you login though since player saving is local it will save it each time, You can change this behaviour easily so it skips changing it though)  
+If you want to go to production you will need to set world_stage to LIVE, This will then run the code in Server.java for the database, which you will need to decide yourself if you want to use it.  
+Player saving is local on LIVE world_stage anyways so you can just as easily comment out the database.  
+
+Now you have server.properties renamed you will be able to run kronos-update-server, kronos-server and OpenOSRS  
+![Step 10.png](SetupGuide/Step%2010.png)  
+![Step 11.png](SetupGuide/Step%2011.png)  
+
+Enjoy!  
+![Step 12.png](SetupGuide/Step%2012.png)

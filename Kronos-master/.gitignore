@@ -11,6 +11,7 @@ CentralServer/target/*
 FileServer/target/*
 kronos_rsa
 
+_saved/
 
 kronos-update-server/server.properties
 
