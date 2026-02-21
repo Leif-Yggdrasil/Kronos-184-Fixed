@@ -187,7 +187,14 @@ public class Shop {
         if(buyAmount > 0) {
             int pricePer = getSellPrice(shopItem);
             int requiredCurrency = buyAmount * pricePer;
-            int removedCurrency = currencyHandler.removeCurrency(player, requiredCurrency);//Should result in 0 if actual currency < requiredCurrency
+            int removedCurrency = 0;
+
+            // If the required currency is 0 we don't need to attempt to remove anything from the players inventory.
+            if (0 < requiredCurrency) {
+
+                removedCurrency = currencyHandler.removeCurrency(player, requiredCurrency);//Should result in 0 if actual currency < requiredCurrency
+            }
+
             if (removedCurrency == requiredCurrency) {
                 Item bought = new Item(shopItem.getId(), buyAmount);
                 player.getInventory().add(bought);
