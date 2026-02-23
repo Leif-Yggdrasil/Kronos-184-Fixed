@@ -50,7 +50,7 @@ public class ShopManager {
     private static final int FIVE = 3;
     private static final int TEN = 4;
     private static final int FIFTY = 5;
-    private static final int EXAMINE = 6;
+    private static final int EXAMINE = 10;
 
 
     public static void uiShopClose(Player player, int i){
