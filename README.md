@@ -5,7 +5,7 @@
 **This was released on [Rune-Server](https://www.rune-server.ee/runescape-development/rs2-server/downloads/696766-kronos-osrs-semi-custom-server-deob-client-multi-world-support-184-a.html) by [Patrity](https://www.rune-server.ee/members/patrity/).**
 
 ---
-**If you would like to contribute to this project, Message me on discord leif.dev**
+**If you would like to contribute to this project please feel free**
 
 **Updated 12/02/2026**
 
